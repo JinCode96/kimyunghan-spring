@@ -7,11 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 /**
- * Servlet 예외 처리
+ * 서블릿이 제공하는 예외 처리. 잘 사용하지 않는다
  * 예외가 발생하게 되면  : 컨트롤러 -> 서블릿 -> WAS
  * 해당 경로로 페이지 호출 :  WAS -> 서블릿 -> 컨트롤러
  */
-@Component
+//@Component
 public class WebServerCustomizer implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {
     @Override
     public void customize(ConfigurableWebServerFactory factory) {
