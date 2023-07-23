@@ -11,13 +11,17 @@ public class MemberServiceV1 {
 
     private final MemberRepositoryV1 repository;
 
+    // 계좌이체 로직
     public void accountTransfer(String fromId, String toId, int money) throws SQLException {
+
+        // 트랜잭션 시작
         Member fromMember = repository.findById(fromId);
         Member toMember = repository.findById(toId);
 
         repository.update(fromId, fromMember.getMoney() - money);
         validation(toMember);
         repository.update(toId, fromMember.getMoney() + money);
+        // 커밋, 롤백
 
     }
 
